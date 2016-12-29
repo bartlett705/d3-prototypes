@@ -1,0 +1,21 @@
+<html>
+<head>
+  <script src="node_modules/d3/build/d3.min.js"></script>
+<body>
+  <style>
+  .link {
+    stroke-width: 5;
+    stroke: #ffff00;
+    fill: none;
+    z-index: 5;
+  }
+  g {
+    z-index: 0;
+  }
+  </style>
+  <h1> Lex me </h1>
+  <input onChange='createGraph()' id='thaOne'></input>
+  <div class='chartSpace'></div>
+  <script src="dendro.js"></script>
+</body>
+</html>

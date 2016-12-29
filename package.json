@@ -1,0 +1,14 @@
+{
+  "name": "d3-first-principles",
+  "version": "1.0.0",
+  "description": "An attempt to learn d3",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ahmad Kanawi",
+  "license": "ISC",
+  "dependencies": {
+    "d3": "^4.4.0"
+  }
+}
