@@ -1,0 +1,35 @@
+@keyframes fadein {
+  0% {align-self: center; opacity: 0}
+  100% {align-self: none; opacity: 1}
+}
+.card-container {
+  border: solid 1px #021E44;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: space-around;
+  border-radius: 5px;
+}
+.card {
+  margin-top: 2em;
+  animation: fadein 1s linear;
+  border-bottom-right-radius: 10px;
+  width: 80%;
+  border: solid 1px #021E44;
+  box-shadow: 4px 4px 10px 0px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 4px 4px 10px 0px rgba(0,0,0,0.5);
+  -moz-box-shadow: 4px 4px 10px 0px rgba(0,0,0,0.5);
+}
+.card-title {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding: 0.25em;
+  border-bottom: 1px dashed #021E44;
+  background: aliceblue;
+}
+.card-content {
+  height: 20vh;
+    padding: 0.25em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
