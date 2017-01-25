@@ -45,10 +45,11 @@ function createGraph(data) {
   } = getConfig(250);
   const aYearAgo = moment(data[data.length - 1].date)
     .subtract(1, 'Y')
-    .day(0);
-  const lastYearsData = data.filter(ele => moment(ele.date) - aYearAgo > 0);
-  const baseWeek = aYearAgo.week();
-  console.log('A Year Ago: ', aYearAgo.format());
+    .day(0)
+    .format();
+  const lastYearsData = data.filter(ele => moment(ele.date) - moment(aYearAgo) > 0);
+  const baseWeek = moment(aYearAgo).week();
+  console.log('A Year Ago: ', aYearAgo);
 
 
   normalizer = assignNormalizedValues(data.map(ele => ele.value));
@@ -65,21 +66,23 @@ function createGraph(data) {
     .enter()
     .append('text')
     .text(d => d)
-    .attr('x', (d, i) => {
-      const offset = aYearAgo.month(i).startOf('month').week();
-      console.log(offset);
-      return offset * CELL_WIDTH;
+    .attr('transform', (d, i) => {
+      const offset = moment(aYearAgo).add(i, 'M').startOf('month');
+      let weekPosition = offset.week() - baseWeek;
+      if (weekPosition < 0) weekPosition += 52;
+      console.log(i, offset.format());
+      return `translate(${(weekPosition) * CELL_WIDTH + CELL_WIDTH / 2} ${Y_OFFSET - 30}) rotate(90)`;
     })
-    .attr('y', Y_OFFSET);
+
   const cells = svg.selectAll('g')
     .data(lastYearsData)
     .enter()
     .append('svg:rect')
     .attr('x', (d) => {
       if (d.date.week() - baseWeek === 0) {
-        if (d.date.year() === aYearAgo.year()) return 0;
+        if (d.date.year() === moment(aYearAgo).year()) return 0;
         else return 51 * CELL_WIDTH;
-      } else if (d.date.week() - baseWeek < 0) return (d.date.week() + 50 -
+      } else if (d.date.week() - baseWeek < 0) return (d.date.week() + 53 -
         baseWeek) * CELL_WIDTH;
       else return (d.date.week() - baseWeek) * CELL_WIDTH;
     })
