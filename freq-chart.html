@@ -17,8 +17,18 @@
     }
   </style>
 </head>
+   <script src="https://apis.google.com/js/client.js?onload=checkAuth">
+   </script>
 <body>
-  <div class='chartSpace'></div>
+  <div id="authorize-div" style="display: block">
+    <span>Authorize access to Google Sheets API</span>
+    <!--Button for the user to click to initiate auth sequence -->
+    <button id="authorize-button" onclick="handleAuthClick(event)">
+      Authorize
+    </button>
+  </div>
+  <pre id="output"></pre>
+  <div id='chartSpace'></div>
   <script src="freq-chart.js"></script>
 </body>
 </html>
