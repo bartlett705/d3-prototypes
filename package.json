@@ -9,6 +9,7 @@
   "author": "Ahmad Kanawi",
   "license": "ISC",
   "dependencies": {
-    "d3": "^4.4.0"
+    "d3": "^4.4.0",
+    "moment": "^2.17.1"
   }
 }
