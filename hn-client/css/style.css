@@ -1,9 +1,9 @@
-@keyframes fadein {
+/*@keyframes fadein {
   0% {align-self: center; opacity: 0}
   100% {align-self: none; opacity: 1}
-}
+}*/
 .card-container {
-  border: solid 1px #021E44;
+  /*border: solid 1px #021E44;*/
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -12,7 +12,9 @@
 }
 .card {
   margin-top: 2em;
-  animation: fadein 1s linear;
+  opacity: 0;
+  transition: opacity 1s ease-in;
+  /*animation: fadein 1s linear;*/
   border-bottom-right-radius: 10px;
   width: 80%;
   border: solid 1px #021E44;
@@ -32,4 +34,7 @@
     padding: 0.25em;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.show {
+  opacity: 1;
 }

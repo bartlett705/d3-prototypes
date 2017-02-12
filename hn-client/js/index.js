@@ -6,6 +6,13 @@ const cards = d3.select('div').selectAll('div')
   .attr('class', 'card')
   .attr('id', d => d.id);
 
+cards.each(function(d, i) {
+  setTimeout(() => {
+    console.log(i * 250);
+    d3.select(this).attr('class', 'card show');
+  }, (i + 1) * 250);
+});
+
 const titles = cards.append('div')
   .attr('class', 'card-title')
 
@@ -17,7 +24,7 @@ const preview = cards.append('div')
     const relevantId = d.id;
     const firstChild = d.kids ? d.kids[0] : '1'
     fetch(`https://hacker-news.firebaseio.com/v0/item/${firstChild}.json`).then(response => response.json()).then(item => {
-    insertPreview(relevantId, item.text);  
+    insertPreview(relevantId, item.text);
     });
   });
 }
@@ -33,7 +40,7 @@ function fetchStories(itemIds) {
     fetch(`https://hacker-news.firebaseio.com/v0/item/${id}.json`).then(response => response.json()).then(item => {
     items.push(item);
       showCards(items);
-    }); 
+    });
   })
 }
 
