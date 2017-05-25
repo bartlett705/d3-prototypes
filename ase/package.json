@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-es2016": "^6.24.1",
+    "ts-loader": "^2.1.0"
+  }
+}
