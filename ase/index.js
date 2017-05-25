@@ -16482,7 +16482,7 @@ var config = {
 // const { CANVAS_WIDTH, CANVAS_HEIGHT } = config;
 function render() {
     __WEBPACK_IMPORTED_MODULE_0_d3__["select"]('svg').remove();
-    var svg = __WEBPACK_IMPORTED_MODULE_0_d3__["select"]('div').append('svg');
+    var svg = __WEBPACK_IMPORTED_MODULE_0_d3__["select"]('div').append('svg').attr('height', '128').attr('width', '150');
     console.log(svg);
     var ourCanvas = __WEBPACK_IMPORTED_MODULE_0_d3__["select"]('body').selectAll('span');
     var whee = setInterval(function () {
@@ -16512,6 +16512,8 @@ var calculateTrianglePathEnds = function calculateTrianglePathEnds(_ref) {
     return [[[x, y], [x + l, y]], [[x + l, y], [x + l / 2, y + l * Math.sqrt(3) / 2]], [[x + l / 2, y + l * Math.sqrt(3) / 2], [x, y]]];
 };
 render();
+var svg = document.querySelector('svg');
+svg.classList.add('rotate');
 
 /***/ })
 /******/ ]);

@@ -8,7 +8,11 @@ const config = {
 
 function render() {
   d3.select('svg').remove();
-  const svg = d3.select('div').append('svg');
+  const svg = d3.select('div')
+    .append('svg')
+    .attr('height', '128')
+    .attr('width', '150');
+
   console.log(svg);
   const ourCanvas = d3.select('body').selectAll('span');
 
@@ -43,3 +47,5 @@ const calculateTrianglePathEnds = ({ l = 1, x = 0, y = 0}) => {
 }
 
 render();
+const svg = document.querySelector('svg');
+svg.classList.add('rotate');
